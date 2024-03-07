@@ -1,15 +1,16 @@
 import React from 'react'
 import './ProductItem.css'
 
-function ProductItem() {
+function ProductItem(props) {
+
     return (
         <div className='product-item'>
             <div className='product-image'>
-                <img src="https://destekar.org/wp-content/uploads/2021/08/sinirsiz-unisex-tisort-siyah-1050.jpg" alt="" />
+                <img src={props.imageUrl} alt="" />
             </div>
             <div className='product-info'>
-                <h2>Product Title</h2>
-                <span>Product Price</span>
+                <h2>{props.productTitle}</h2>
+                <span>{props.productPrice}  </span>
             </div>
         </div>
     )
