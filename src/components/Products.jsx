@@ -1,25 +1,7 @@
 import React from 'react'
 import ProductItem from './ProductItem'
 import './Products.css'
-
-const productData = [
-    {
-        productName: 'Soda',
-        imageUrl: 'https://picsum.photos/200/300',
-        productPrice: 4
-    },
-    {
-        productName: 'Soda2',
-        imageUrl: 'https://picsum.photos/200/400',
-        productPrice: 3
-    },
-    {
-        productName: 'Soda2',
-        imageUrl: 'https://picsum.photos/300/500',
-        productPrice: 2
-    },
-]
-
+import { productData } from '../productData'
 function Products() {
     // const imageUrl = 'https://destekar.org/wp-content/uploads/2021/08/sinirsiz-unisex-tisort-siyah-1050.jpg'
     // const productTitle = 'T-shirt'
