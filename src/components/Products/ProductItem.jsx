@@ -1,5 +1,6 @@
 import React from 'react'
 import './ProductItem.css'
+import ProductInfo from './ProductInfo'
 
 function ProductItem({ product }) {
     // const { product } = props
@@ -9,10 +10,11 @@ function ProductItem({ product }) {
             <div className='product-image'>
                 <img src={product.imageUrl} alt="" />
             </div>
-            <div className='product-info'>
+
+            <ProductInfo >
                 <h2>{product.productName}</h2>
-                <span>{product.productPrice}₺  </span>
-            </div>
+                <span>{product.productPrice}₺</span>
+            </ProductInfo>
         </div>
     )
 }
