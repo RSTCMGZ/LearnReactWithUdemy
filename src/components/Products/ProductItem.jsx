@@ -1,4 +1,4 @@
-import React from 'react'
+import { useState } from 'react'
 import './ProductItem.css'
 import ProductInfo from './ProductInfo'
 
@@ -8,20 +8,20 @@ function ProductItem({ product }) {
     // myButton.addEventListener('click', function () {
     //     console.log('sepete eklendi!');
     // })
+    const [title, setTitle] = useState(product.productName)
     const clickHandler = () => {
-        console.log('Tıklandı');
+        setTitle('Güncellendi!')
     }
     return (
         <div className='product-item'>
             <div className='product-image'>
                 <img src={product.imageUrl} alt="" />
             </div>
-
             <ProductInfo >
-                <h2>{product.productName}</h2>
+                <h2 >{title}</h2>
                 <span>{product.productPrice}₺</span>
                 <br />
-                <button onClick={clickHandler}>Sepete Ekle</button>
+                <button onClick={clickHandler}  > Güncelle</button>
             </ProductInfo>
         </div>
     )

@@ -10,7 +10,7 @@ export const productData = [
         productPrice: 3
     },
     {
-        productName: 'Soda2',
+        productName: 'Soda3',
         imageUrl: 'https://picsum.photos/300/500',
         productPrice: 2
     },
