@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './ProductItem.css'
 import ProductInfo from './ProductInfo'
+import Counter from '../Counter'
 
 function ProductItem({ product }) {
     // const { product } = props
@@ -8,18 +9,23 @@ function ProductItem({ product }) {
     // myButton.addEventListener('click', function () {
     //     console.log('sepete eklendi!');
     // })
-    const [title, setTitle] = useState(product.productName)
+    const { imageUrl, productName, productPrice } = product
+    const [title, setTitle] = useState(productName)
+    const [counter, setCounter] = useState(productPrice)
     const clickHandler = () => {
         setTitle('Güncellendi!')
     }
     return (
         <div className='product-item'>
             <div className='product-image'>
-                <img src={product.imageUrl} alt="" />
+                <img src={imageUrl} alt="" />
             </div>
             <ProductInfo >
                 <h2 >{title}</h2>
-                <span>{product.productPrice}₺</span>
+                <Counter
+                    productPrice={productPrice} counter={counter} setCounter={setCounter}
+                >
+                </Counter>
                 <br />
                 <button onClick={clickHandler}  > Güncelle</button>
             </ProductInfo>
