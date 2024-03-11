@@ -1,4 +1,5 @@
 import './App.css';
+import Counter from './components/Counter';
 import Products from './components/Products/Products';
 
 // function MyComponent() {
@@ -22,6 +23,7 @@ function App() {
     // </div>
     <div >
       <Products />
+      <Counter />
     </div>
   );
 }
