@@ -1,10 +1,10 @@
 import React from 'react'
 import ProductForm from './ProductForm'
 
-function NewProduct({ products, setProducts }) {
+function NewProduct({ setProducts }) {
 
     const onSaveProduct = (newProductData) => {
-        setProducts([...products, newProductData])
+        setProducts((prevState) => [newProductData, ...prevState])
     }
     return (
         <div className='new-product-wrapper'>

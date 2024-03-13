@@ -10,7 +10,7 @@ const Products = () => {
 
     return (
         <div className='product-wrapper'>
-            <NewProduct setProducts={setProducts} products={products} />
+            <NewProduct setProducts={setProducts} />
             <h1>Products</h1>
             <div className='products'>
                 {products.map((product) =>
