@@ -1,36 +1,39 @@
-import { useState } from 'react'
-import './ProductItem.css'
-import ProductInfo from './ProductInfo'
-import Counter from '../Counter'
+import { useState } from "react";
+import Counter from "../Counter";
+import ProductInfo from "./ProductInfo";
+import "./ProductItem.css";
 
-function ProductItem({ product }) {
-    // const { product } = props
-    // const myButton = document.getElementById('myButton')
-    // myButton.addEventListener('click', function () {
-    //     console.log('sepete eklendi!');
-    // })
-    const { imageUrl, productName, productPrice } = product
-    const [title, setTitle] = useState(productName)
-    const [counter, setCounter] = useState(productPrice)
+const ProductItem = ({ product }) => {
+    const { imageUrl, productName, productPrice } = product;
+    // let title = productName;
+    const [title, setTitle] = useState(productName);
+    const [counter, setCounter] = useState(productPrice);
+
     const clickHandler = () => {
-        setTitle('Güncellendi!')
-    }
+        setTitle("Güncellendi!");
+        console.log(productName, "Güncellendi!");
+    };
+
     return (
-        <div className='product-item'>
-            <div className='product-image'>
+        <div className="product-item">
+            <div className="product-image">
                 <img src={imageUrl} alt="" />
             </div>
-            <ProductInfo >
-                <h2 >{title}</h2>
+            <ProductInfo>
+                <h2>{title}</h2>
+
                 <Counter
-                    productPrice={productPrice} counter={counter} setCounter={setCounter}
+                    productPrice={productPrice}
+                    counter={counter}
+                    setCounter={setCounter}
                 >
+                    <span>{counter}₺</span>
                 </Counter>
                 <br />
-                <button onClick={clickHandler}  > Güncelle</button>
+                <button onClick={clickHandler}>Güncelle</button>
             </ProductInfo>
         </div>
-    )
-}
+    );
+};
 
-export default ProductItem
+export default ProductItem;

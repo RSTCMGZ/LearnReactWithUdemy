@@ -1,16 +1,15 @@
-import React from 'react'
-import ProductForm from './ProductForm'
+import ProductForm from "./ProductForm";
 
-function NewProduct({ setProducts }) {
-
+const NewProduct = ({ products, setProducts }) => {
     const onSaveProduct = (newProductData) => {
-        setProducts((prevState) => [newProductData, ...prevState])
-    }
-    return (
-        <div className='new-product-wrapper'>
-            <ProductForm onSaveProduct={onSaveProduct} />
-        </div>
-    )
-}
+        setProducts((prevState) => [newProductData, ...prevState]);
+    };
 
-export default NewProduct
+    return (
+        <div className="new-product-wrapper">
+            <ProductForm onSaveProduct={onSaveProduct} products={products} />
+        </div>
+    );
+};
+
+export default NewProduct;
