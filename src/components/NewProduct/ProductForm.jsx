@@ -1,62 +1,52 @@
 import React, { useState } from 'react'
 import './ProductForm.css'
-function ProductForm() {
+function ProductForm(props) {
 
-    // const [productName, setProductName] = useState('')
-    // const [productPrice, setProductPrice] = useState('')
-    // const [productImageUrl, setProductImageUrl] = useState('')
+    const [productName, setProductName] = useState('')
+    const [productPrice, setProductPrice] = useState('')
+    const [imageUrl, setImageUrl] = useState('')
 
-
-    const [productData, setProductData] = useState(
-        {
-            productName: '',
-            productPrice: "0",
-            imageUrl: '',
-        },
-    )
     const titleChangeHandler = (event) => {
-        // setProductName(event.target.value)
-        // setProductData({
-        //     ...productData,
-        //     productName: event.target.value
-        // })
-        setProductData((prevState) => {
-            return { ...prevState, productName: event.target.value }
-        })
+        setProductName(event.target.value)
     }
     const priceChangeHandler = (event) => {
-        // setProductPrice(event.target.value)
-        // setProductData({
-        //     ...productData,
-        //     productPrice: event.target.value
-        // })
-        setProductData((prevState) => {
-            return { ...prevState, productPrice: event.target.value }
-        })
+        setProductPrice(event.target.value)
+
     }
     const imageChangeHandler = (event) => {
-        // setProductImageUrl(event.target.value)
-        // setProductData({
-        //     ...productData,
-        //     imageUrl: event.target.value
-        // })
-        setProductData((prevState) => {
-            return { ...prevState, imageUrl: event.target.value }
-        })
+        setImageUrl(event.target.value)
     }
+
+    const submitHandler = (event) => {
+        event.preventDefault()
+
+
+
+        const newProductData = {
+            productName,
+            productPrice,
+            imageUrl
+        }
+        // props.setProducts((prevState) => [...prevState, newProductData])
+        props.onSaveProduct(newProductData)
+        setProductName('')
+        setProductPrice('')
+        setImageUrl('')
+    }
+
     return (
-        <form className='product-form'>
+        <form className='product-form' onSubmit={submitHandler}>
             <div className='product-form-input'>
                 <label>Ürün Adı </label>
-                <input type="text" placeholder='Ürün Adı Giriniz.' onChange={titleChangeHandler} />
+                <input type="text" placeholder='Ürün Adı Giriniz.' onChange={titleChangeHandler} value={productName} />
             </div>
             <div className='product-form-input'>
                 <label>Ürün Fiyatı </label>
-                <input type="number" placeholder='Ürün Fiyatı Giriniz.' onChange={priceChangeHandler} />
+                <input type="number" placeholder='Ürün Fiyatı Giriniz.' onChange={priceChangeHandler} value={productPrice} />
             </div>
             <div className='product-form-input'>
                 <label>Ürün Görseli </label>
-                <input type="text" placeholder='Ürün Görseli Giriniz.' onChange={imageChangeHandler} />
+                <input type="text" placeholder='Ürün Görseli Giriniz.' onChange={imageChangeHandler} value={imageUrl} />
             </div>
             <button className='product-form-button'>Ürün Ekle</button>
         </form>
