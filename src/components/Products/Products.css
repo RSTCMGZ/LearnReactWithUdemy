@@ -1,10 +1,13 @@
 .product-wrapper {
   padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .products {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 10px;
-  text-align: start;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
 }
