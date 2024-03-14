@@ -13,7 +13,7 @@ const Products = () => {
             <div className="products">
                 {products.length === 0 ? <p>Hiç Ürün Yok...</p> :
                     products.map((product) => (
-                        <ProductItem product={product} key={product.id} />
+                        <ProductItem product={product} key={product.id} setProducts={setProducts} products={products} />
                     ))
 
                 }
