@@ -30,7 +30,9 @@
     margin-top: 10px;
     height: 30px;
 }
-
+.product-form .cancel {
+    background-color: rgb(222, 50, 50);
+}
 .product-form .product-form-input {
     display: flex;
     flex-direction: column;
